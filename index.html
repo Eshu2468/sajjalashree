@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAJJALASHREE - Software Training and Placement Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #34495e;
+            --gradient: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn-accent:hover {
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .section-title p {
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation Arrows */
+        .nav-arrows {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 15px;
+        }
+        
+        .arrow-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .arrow-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-left: 10px;
+            font-weight: 700;
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 180px 0 100px;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* Courses Section */
+        .courses {
+            background: var(--light);
+        }
+        
+        .course-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-img {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .course-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .course-content p {
+            margin-bottom: 15px;
+            color: var(--text);
+            flex-grow: 1;
+        }
+        
+        .course-features {
+            margin: 15px 0;
+        }
+        
+        .course-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .course-features li i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        /* Additional Courses (Hidden by default) */
+        .additional-courses {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .show-more-active .additional-courses {
+            display: grid;
+        }
+        
+        /* Instructors Section */
+        .instructors {
+            position: relative;
+        }
+        
+        .instructor-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .instructor-card {
+            text-align: center;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .instructor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructor-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 5px solid var(--light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructor-card h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .instructor-card p {
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: var(--light);
+            border-radius: 50%;
+            line-height: 36px;
+            text-align: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            margin: 0 5px;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Additional Instructors (Hidden by default) */
+        .additional-instructors {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .show-more-instructors .additional-instructors {
+            display: grid;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--light);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 60px;
+            color: var(--secondary);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--text);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--secondary);
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            color: var(--text);
+            font-size: 14px;
+        }
+        
+        .view-more-btn {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        /* Alumni Companies Section */
+        .alumni-companies {
+            background: white;
+            padding: 60px 0;
+            overflow: hidden;
+        }
+        
+        .alumni-companies h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        
+        .company-slider {
+            display: flex;
+            animation: slide 30s linear infinite;
+            width: calc(200px * 12);
+        }
+        
+        .company-slider:hover {
+            animation-play-state: paused;
+        }
+        
+        .company-slider img {
+            height: 80px;
+            margin: 0 40px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .company-slider img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-200px * 6));
+            }
+        }
+        
+        /* Blog Section */
+        .blog {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+        }
+        
+        .blog .section-title h2 {
+            color: white;
+        }
+        
+        .blog .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .blog-content p {
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--secondary);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: var(--primary);
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Additional Blog Posts (Hidden by default) */
+        .additional-blogs {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .show-more-blogs .additional-blogs {
+            display: grid;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--light);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--secondary);
+            width: 20px;
+            font-size: 20px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .company-slider img {
+                height: 60px;
+                margin: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img" style="background: var(--gradient); color: white; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; font-size: 20px;">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h1>SAJJALASHREE</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#instructors">Instructors</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Transform Your Career with IT Excellence</h1>
+            <p>Industry-relevant training programs designed to make you job-ready with placement assistance</p>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn">Explore Courses</a>
+                <a href="#contact" class="btn btn-accent">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="section courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Courses</h2>
+                <p>Comprehensive training programs designed by industry experts</p>
+            </div>
+            
+            <div class="course-container">
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-img">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3>Full Stack Development</h3>
+                            <p>Master front-end and back-end technologies to become a proficient full stack developer.</p>
+                            <ul class="course-features">
+                                <li><i class="fas fa-check-circle"></i> HTML, CSS, JavaScript</li>
+                                <li><i class="fas fa-check-circle"></i> React.js, Node.js</li>
+                                <li><i class="fas fa-check-circle"></i> MongoDB, SQL</li>
+                                <li><i class="fas fa-check-circle"></i> 6 Months Program</li>
+                            </ul>
+                            <div class="course-meta">
+                                <span><i class="fas fa-user-graduate"></i> 100% Placement</span>
+                                <span><i class="fas fa-certificate"></i> Certificate</span>
+                            </div>
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-img">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3>Data Analytics</h3>
+                            <p>Learn to analyze and visualize data to drive business decisions and strategies.</p>
+                            <ul class="course-features">
+                                <li><i class="fas fa-check-circle"></i> Python for Data Science</li>
+                                <li><i class="fas fa-check-circle"></i> SQL & Database Management</li>
+                                <li><i class="fas fa-check-circle"></i> Tableau, Power BI</li>
+                                <li><i class="fas fa-check-circle"></i> 4 Months Program</li>
+                            </ul>
+                            <div class="course-meta">
+                                <span><i class="fas fa-user-graduate"></i> 100% Placement</span>
+                                <span><i class="fas fa-certificate"></i> Certificate</span>
+                            </div>
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-img">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3>Cybersecurity</h3>
+                            <p>Develop skills to protect systems and networks from digital attacks and threats.</p>
+                            <ul class="course-features">
+                                <li><i class="fas fa-check-circle"></i> Network Security</li>
+                                <li><i class="fas fa-check-circle"></i> Ethical Hacking</li>
+                                <li><i class="fas fa-check-circle"></i> Security Auditing</li>
+                                <li><i class="fas fa-check-circle"></i> 5 Months Program</li>
+                            </ul>
+                            <div class="course-meta">
+                                <span><i class="fas fa-user-graduate"></i> 100% Placement</span>
+                                <span><i class="fas fa-certificate"></i> Certificate</span>
+                            </div>
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Courses (Hidden by default) -->
+                <div class="additional-courses">
+                    <div class="course-card">
+                        <div class="course-img">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3>Mobile App Development</h3>
+                            <p>Build native and cross-platform mobile applications for iOS and Android.</p>
+                            <ul class="course-features">
+                                <li><i class="fas fa-check-circle"></i> React Native</li>
+                                <li><i class="fas fa-check-circle"></i> Flutter</li>
+                                <li><i class="fas fa-check-circle"></i> iOS & Android SDK</li>
+                                <li><i class="fas fa-check-circle"></i> 5 Months Program</li>
+                            </ul>
+                            <div class="course-meta">
+                                <span><i class="fas fa-user-graduate"></i> 100% Placement</span>
+                                <span><i class="fas fa-certificate"></i> Certificate</span>
+                            </div>
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-img">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3>Cloud Computing</h3>
+                            <p>Learn to deploy, manage, and scale applications on cloud platforms.</p>
+                            <ul class="course-features">
+                                <li><i class="fas fa-check-circle"></i> AWS, Azure, GCP</li>
+                                <li><i class="fas fa-check-circle"></i> Containerization</li>
+                                <li><i class="fas fa-check-circle"></i> Serverless Architecture</li>
+                                <li><i class="fas fa-check-circle"></i> 4 Months Program</li>
+                            </ul>
+                            <div class="course-meta">
+                                <span><i class="fas fa-user-graduate"></i> 100% Placement</span>
+                                <span><i class="fas fa-certificate"></i> Certificate</span>
+                            </div>
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-img">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3>AI & Machine Learning</h3>
+                            <p>Master the fundamentals of artificial intelligence and machine learning algorithms.</p>
+                            <ul class="course-features">
+                                <li><i class="fas fa-check-circle"></i> Python for AI</li>
+                                <li><i class="fas fa-check-circle"></i> Neural Networks</li>
+                                <li><i class="fas fa-check-circle"></i> TensorFlow, PyTorch</li>
+                                <li><i class="fas fa-check-circle"></i> 6 Months Program</li>
+                            </ul>
+                            <div class="course-meta">
+                                <span><i class="fas fa-user-graduate"></i> 100% Placement</span>
+                                <span><i class="fas fa-certificate"></i> Certificate</span>
+                            </div>
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-arrows">
+                    <div class="arrow-btn left-arrow" onclick="toggleCourses()">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="arrow-btn right-arrow" onclick="toggleCourses()">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section id="instructors" class="section instructors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Instructors</h2>
+                <p>Learn from industry professionals with years of experience</p>
+            </div>
+            
+            <div class="instructor-container">
+                <div class="instructor-grid">
+                    <div class="instructor-card">
+                        <div class="instructor-img" style="background: var(--gradient); color: white; display: flex; align-items: center; justify-content: center; font-size: 40px;">VG</div>
+                        <h3>Vishwanath Gowda</h3>
+                        <p>CyberSecurity CISO Officer</p>
+                        <p>11+ years of experience in IT Companies. Certified ethical hacker and security auditor</p>
+                        <div>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-card">
+                        <div class="instructor-img" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 40px;">ES</div>
+                        <h3>Eshwari</h3>
+                        <p>Data Scientist</p>
+                        <p>Expert in ML and data visualization with 8+ years of industry experience</p>
+                        <div>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-card">
+                        <div class="instructor-img" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 40px;">DH</div>
+                        <h3>Dhanushree</h3>
+                        <p>SAP MM Consultant</p>
+                        <p>SAP MM Consultant with expertise in Procurement, Inventory & Vendor Management</p>
+                        <div>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Instructors (Hidden by default) -->
+                <div class="additional-instructors">
+                    <div class="instructor-card">
+                        <div class="instructor-img" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 40px;">SA</div>
+                        <h3>Sahana</h3>
+                        <p>Mobile App Developer</p>
+                        <p>iOS and Android development expert with 7+ years of experience</p>
+                        <div>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-card">
+                        <div class="instructor-img" style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 40px;">AS</div>
+                        <h3>Anjali Singh</h3>
+                        <p>Cloud DevOps Architect</p>
+                        <p>AWS certified solutions architect with expertise in cloud infrastructure</p>
+                        <div>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-card">
+                        <div class="instructor-img" style="background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 40px;">VJ</div>
+                        <h3>Vikram Joshi</h3>
+                        <p>AI/ML Specialist</p>
+                        <p>PhD in Machine Learning algorithms with research experience</p>
+                        <div>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-arrows">
+                    <div class="arrow-btn left-arrow" onclick="toggleInstructors()">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="arrow-btn right-arrow" onclick="toggleInstructors()">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Student Testimonials</h2>
+                <p>Hear what our students have to say about their learning experience</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The Full Stack Development course at SAJJALASHREE transformed my career. I landed a job as a developer at a tech startup even before completing the course! The hands-on projects were incredibly valuable.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-color: #dee2e6; color: #495057; display: flex; align-items: center; justify-content: center; font-size: 16px;">AS</div>
+                        <div class="author-info">
+                            <h4>Anjali Singh</h4>
+                            <p>Software Developer at TechSolutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The Data Analytics program gave me practical skills that I immediately applied in my job. The instructors are industry experts who know exactly what employers are looking for. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-color: #dee2e6; color: #495057; display: flex; align-items: center; justify-content: center; font-size: 16px;">RM</div>
+                        <div class="author-info">
+                            <h4>Rohit Mehta</h4>
+                            <p>Data Analyst at AnalyticsPro</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I was completely new to cybersecurity, but the structured curriculum and supportive instructors helped me build a strong foundation and get certified in just 5 months. Now I'm working as a Security Analyst.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-color: #dee2e6; color: #495057; display: flex; align-items: center; justify-content: center; font-size: 16px;">SK</div>
+                        <div class="author-info">
+                            <h4>Sneha Kulkarni</h4>
+                            <p>Security Analyst at SecureNet</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The Mobile App Development course exceeded my expectations. The instructors provided real-world examples and the capstone project helped me build a portfolio that impressed employers.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-color: #dee2e6; color: #495057; display: flex; align-items: center; justify-content: center; font-size: 16px;">PK</div>
+                        <div class="author-info">
+                            <h4>Priya Kumar</h4>
+                            <p>Mobile Developer at AppWorks</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As a career switcher, I was nervous about entering the tech field. But the Cloud Computing program at SAJJALASHREE gave me the confidence and skills to land a cloud engineer role within 3 months of completion.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-color: #dee2e6; color: #495057; display: flex; align-items: center; justify-content: center; font-size: 16px;">AR</div>
+                        <div class="author-info">
+                            <h4>Amit Raj</h4>
+                            <p>Cloud Engineer at CloudServe</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The AI & Machine Learning course was challenging but incredibly rewarding. The instructors were always available to help, and the projects were directly applicable to real-world problems.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-color: #dee2e6; color: #495057; display: flex; align-items: center; justify-content: center; font-size: 16px;">NS</div>
+                        <div class="author-info">
+                            <h4>Neha Sharma</h4>
+                            <p>ML Engineer at DataMind</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-more-btn">
+                <a href="#" class="btn">View More Testimonials</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Companies Section -->
+    <section class="alumni-companies">
+        <div class="container">
+            <h2>Our Alumni Works Here</h2>
+            <div class="company-slider">
+                <img src="https://logo.clearbit.com/google.com" alt="Google">
+                <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft">
+                <img src="https://logo.clearbit.com/apple.com" alt="Apple">
+                <img src="https://logo.clearbit.com/amazon.com" alt="Amazon">
+                <img src="https://logo.clearbit.com/infosys.com" alt="Infosys">
+                <img src="https://logo.clearbit.com/tcs.com" alt="TCS">
+                <img src="https://logo.clearbit.com/accenture.com" alt="Accenture">
+                <img src="https://logo.clearbit.com/ibm.com" alt="IBM">
+                <img src="https://logo.clearbit.com/wipro.com" alt="Wipro">
+                <img src="https://logo.clearbit.com/cognizant.com" alt="Cognizant">
+                <img src="https://logo.clearbit.com/hcl.com" alt="HCL">
+                <img src="https://logo.clearbit.com/capgemini.com" alt="Capgemini">
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Articles</h2>
+                <p>Insights and updates from the world of technology</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Programming Languages">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3>Top 5 Programming Languages to Learn in 2023</h3>
+                        <p>Stay ahead of the curve by mastering these in-demand programming languages that are shaping the future of technology.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Data Analytics">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> July 2, 2023</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h3>How Data Analytics is Transforming Business Decisions</h3>
+                        <p>Discover how businesses are leveraging data analytics to drive strategic decisions and gain competitive advantage.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cybersecurity">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> July 20, 2023</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3>Essential Cybersecurity Practices for Remote Work</h3>
+                        <p>With the rise of remote work, learn about the critical cybersecurity measures every professional should implement.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Blog Posts (Hidden by default) -->
+            <div class="additional-blogs">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cloud Computing">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> August 5, 2023</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h3>Cloud Computing Trends to Watch in 2023</h3>
+                        <p>Explore the latest developments in cloud technology and how they're shaping the future of business infrastructure.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="AI">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> August 18, 2023</span>
+                            <span><i class="far fa-clock"></i> 9 min read</span>
+                        </div>
+                        <h3>The Future of Artificial Intelligence in Business</h3>
+                        <p>How AI technologies are revolutionizing industries and creating new opportunities for innovation and growth.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mobile Development">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> September 1, 2023</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h3>Cross-Platform Mobile Development: Pros and Cons</h3>
+                        <p>Analyzing the benefits and limitations of cross-platform frameworks for mobile app development.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-more-btn">
+                <a href="#" class="btn" onclick="toggleBlogs()">View More Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Reach out to us for course inquiries or enrollment</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Tech Park, Bengaluru, Karnataka</p>
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-envelope"></i> info@sajjalashree.com</p>
+                        <p><i class="fas fa-clock"></i> Monday-Saturday: 9AM-6PM</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course Interested In</label>
+                            <select id="course">
+                                <option value="">Select a course</option>
+                                <option value="fullstack">Full Stack Development</option>
+                                <option value="data">Data Analytics</option>
+                                <option value="cyber">Cybersecurity</option>
+                                <option value="mobile">Mobile App Development</option>
+                                <option value="cloud">Cloud Computing</option>
+                                <option value="ai">AI & Machine Learning</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>SAJJALASHREE</h4>
+                    <p>Software Training and Placement Center dedicated to building tomorrow's tech leaders.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="#">Full Stack Development</a></li>
+                        <li><a href="#">Data Analytics</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                        <li><a href="#">Mobile App Development</a></li>
+                        <li><a href="#">Cloud Computing</a></li>
+                        <li><a href="#">AI & Machine Learning</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#instructors">Instructors</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-phone"></i> +91 9876543210</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@sajjalashree.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Tech Park, Bengaluru</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 SAJJALASHREE. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to toggle additional courses
+        function toggleCourses() {
+            const courseContainer = document.querySelector('.course-container');
+            courseContainer.classList.toggle('show-more-active');
+            
+            // Update arrow icons based on state
+            const arrowIcons = document.querySelectorAll('.course-container .arrow-btn i');
+            if (courseContainer.classList.contains('show-more-active')) {
+                arrowIcons.forEach(icon => {
+                    icon.classList.remove('fa-arrow-right');
+                    icon.classList.add('fa-arrow-left');
+                });
+            } else {
+                arrowIcons.forEach(icon => {
+                    icon.classList.remove('fa-arrow-left');
+                    icon.classList.add('fa-arrow-right');
+                });
+            }
+        }
+        
+        // Function to toggle additional instructors
+        function toggleInstructors() {
+            const instructorContainer = document.querySelector('.instructor-container');
+            instructorContainer.classList.toggle('show-more-instructors');
+            
+            // Update arrow icons based on state
+            const arrowIcons = document.querySelectorAll('.instructor-container .arrow-btn i');
+            if (instructorContainer.classList.contains('show-more-instructors')) {
+                arrowIcons.forEach(icon => {
+                    icon.classList.remove('fa-arrow-right');
+                    icon.classList.add('fa-arrow-left');
+                });
+            } else {
+                arrowIcons.forEach(icon => {
+                    icon.classList.remove('fa-arrow-left');
+                    icon.classList.add('fa-arrow-right');
+                });
+            }
+        }
+        
+        // Function to toggle additional blog posts
+        function toggleBlogs() {
+            const blogContainer = document.querySelector('.blog .container');
+            blogContainer.classList.toggle('show-more-blogs');
+            
+            // Update button text based on state
+            const viewMoreBtn = document.querySelector('.blog .view-more-btn a');
+            if (blogContainer.classList.contains('show-more-blogs')) {
+                viewMoreBtn.textContent = 'View Less Articles';
+            } else {
+                viewMoreBtn.textContent = 'View More Articles';
+            }
+        }
+    </script>
+</body>
+</html>
