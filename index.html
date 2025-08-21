@@ -13,6 +13,168 @@
             box-sizing: border-box;
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #34495e;
+            --gradient: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0;
+        }
+        
+        .logo-text .tagline {
+            font-size: 12px;
+            color: var(--secondary);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+            color: white;
+        }
+        
+        /* Rest of your CSS remains the same */
+        /* ... (all other CSS from your original code) ... */
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo-container {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            /* ... (rest of responsive code) ... */
+        }
         
         :root {
             --primary: #2c3e50;
@@ -1067,25 +1229,30 @@
 <body>
     <!-- Header Section -->
     <header>
+            <!-- Header Section -->
+    <header>
         <div class="container header-container">
-            <div class="logo">
-                <div class="logo-img" style="background: var(--gradient); color: white; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; font-size: 20px;">
-                    <i class="fas fa-graduation-cap"></i>
+            <a href="#" class="logo">
+                <div class="logo-container">
+                    <img src="sajjalashree.jpeg" alt="SAJJALASHREE Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1>SAJJALASHREE</h1>
+                        <span class="tagline">Software training and placements center</span>
+                    </div>
                 </div>
-                <h1>SAJJALASHREE</h1>
-            </div>
+            </a>
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#courses">Courses</a></li>
                     <li><a href="#instructors">Instructors</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#Internships">Internships</a></li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
+    </header>
     </header>
 
     <!-- Hero Section -->
@@ -1822,5 +1989,6 @@
     </script>
 </body>
 </html>
+
 
 
